@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupActivity">
+
+    <TextView
+        android:id="@+id/sign_up_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="35dp"
+        android:text="Sign Up"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/signup_name_edittext"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/sign_up_title_text"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Name" />
+
+    <EditText
+        android:id="@+id/signup_phone_number_edittext"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/signup_name_edittext"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/phone_number"
+        android:inputType="phone" />
+
+    <Spinner
+        android:id="@+id/signup_spinner"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/signup_phone_number_edittext"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/signup_email_edittext"
+        android:layout_marginTop="20dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signup_spinner"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/email_address_optional"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/signup_password_edittext"
+        android:layout_marginTop="20dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signup_email_edittext"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/signup_signup_button"
+        android:layout_below="@+id/signup_password_edittext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:text="@string/sign_up"
+        android:background="@color/colorAccent"
+        android:fontFamily="cursive"/>
+
+    <TextView
+        android:id="@+id/already_have_account_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signup_signup_button"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/already_have_an_account"
+        android:textSize="20sp"
+        android:textColor="#FA1D6A"
+        android:textStyle="bold"
+        android:fontFamily="cursive"/>
+
+
+</RelativeLayout>
