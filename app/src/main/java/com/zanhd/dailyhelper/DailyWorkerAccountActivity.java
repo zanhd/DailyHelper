@@ -9,9 +9,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.HeaderViewListAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.zanhd.dailyhelper.data.DatabaseHandlerCustomer;
+import com.zanhd.dailyhelper.data.DatabaseHandlerDailyWorker;
+import com.zanhd.dailyhelper.model.Customer;
+import com.zanhd.dailyhelper.model.DailyWorker;
 
 public class DailyWorkerAccountActivity extends AppCompatActivity {
 
@@ -35,6 +42,23 @@ public class DailyWorkerAccountActivity extends AppCompatActivity {
         toggle.syncState();
 
         navigationView = findViewById(R.id.dailyWorker_navmenu);
+        View headerLayout = navigationView.getHeaderView(0);
+        TextView nameText = headerLayout.findViewById(R.id.dailyWoker_name);
+        TextView phoneText = headerLayout.findViewById(R.id.dailyWorker_phonenumber);
+        TextView emailText = headerLayout.findViewById(R.id.dailyWoker_email);
+        Bundle login_id = getIntent().getExtras();
+        if(login_id!=null) {
+            int id = login_id.getInt("ID");
+
+            DatabaseHandlerDailyWorker dbDailyWoker = new DatabaseHandlerDailyWorker(this);
+            DailyWorker dailyWorker = dbDailyWoker.getDailyWorker(id);
+
+            nameText.setText(dailyWorker.getName());
+            phoneText.setText(dailyWorker.getPhoneNumber());
+            emailText.setText(dailyWorker.getEmailAddress());
+
+        }
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -51,5 +75,6 @@ public class DailyWorkerAccountActivity extends AppCompatActivity {
                 return true;
             }
         });
+
     }
 }

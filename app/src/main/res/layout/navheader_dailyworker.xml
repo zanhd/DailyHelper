@@ -1,33 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/colorAccent">
 
     <ImageView
+        android:id="@+id/dailyWoker_image"
         android:padding="5dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
+        android:layout_margin="10dp"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/login_image"/>
-    <TextView
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:hint="@string/name"
-        android:fontFamily="cursive"
-        android:textSize="25sp" />
-    <TextView
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:hint="@string/phone_number"
-        android:textSize="20sp"
-        android:fontFamily="cursive"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/dailyWoker_name"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:hint="@string/name"
+            android:textStyle="italic|bold"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/dailyWorker_phonenumber"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:hint="@string/phone_number"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/dailyWoker_email"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:hint="@string/email_address"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
 </LinearLayout>

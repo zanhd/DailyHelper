@@ -9,9 +9,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import com.zanhd.dailyhelper.data.DatabaseHandlerCustomer;
+import com.zanhd.dailyhelper.model.Customer;
 
 public class CustomerAccountActivity extends AppCompatActivity {
 
@@ -34,6 +39,23 @@ public class CustomerAccountActivity extends AppCompatActivity {
         toggle.syncState();
 
         navigationView = findViewById(R.id.customer_navmenu);
+        View headerLayout = navigationView.getHeaderView(0);
+        TextView nameText = headerLayout.findViewById(R.id.customer_name);
+        TextView phoneText = headerLayout.findViewById(R.id.customer_phonenumber);
+        TextView emailText = headerLayout.findViewById(R.id.customer_email);
+        Bundle login_id = getIntent().getExtras();
+        if(login_id!=null) {
+            int id = login_id.getInt("ID");
+
+            DatabaseHandlerCustomer dbCustomer = new DatabaseHandlerCustomer(this);
+            Customer customer = dbCustomer.getCustomer(id);
+
+            nameText.setText(customer.getName());
+            phoneText.setText(customer.getPhoneNumber());
+            emailText.setText(customer.getEmailAddress());
+
+        }
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -50,5 +72,7 @@ public class CustomerAccountActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+
     }
 }

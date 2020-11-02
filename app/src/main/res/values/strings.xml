@@ -25,6 +25,7 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="customer">Customer</string>
+    <string name="email_address">Email address</string>
 
     <string-array name="login_spinner_array">
         <item>Customer</item>

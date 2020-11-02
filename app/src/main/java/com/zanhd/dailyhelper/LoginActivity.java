@@ -82,7 +82,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             DailyWorker dailyWorker1 = dbDailyWorker.getDailyWorker(id);
                             if(dailyWorker.getPassword().equals(dailyWorker1.getPassword())) {
                                 //now open the DailyWorker Account
-                                startActivity(new Intent(LoginActivity.this,DailyWorkerAccountActivity.class));
+                                Intent intent = new Intent(LoginActivity.this,DailyWorkerAccountActivity.class);
+                                intent.putExtra("ID",id);
+                                startActivity(intent);
                                 //finish();
                             } else {
                                 Snackbar.make(view,"Incorrect Password",Snackbar.LENGTH_SHORT).show();
@@ -105,7 +107,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             Customer customer1 = dbCustomer.getCustomer(id);
                             if(customer1.getPassword().equals(customer.getPassword())) {
                                 //now open the Customer Account
-                                startActivity(new Intent(LoginActivity.this,CustomerAccountActivity.class));
+                                Intent intent = new Intent(LoginActivity.this,CustomerAccountActivity.class);
+                                intent.putExtra("ID",id);
+                                startActivity(intent);
                                 //finish();
                             } else {
                                 Snackbar.make(view,"Incorrect Password",Snackbar.LENGTH_SHORT).show();
