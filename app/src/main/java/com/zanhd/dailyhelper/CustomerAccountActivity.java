@@ -6,17 +6,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.zanhd.dailyhelper.data.DatabaseHandlerCustomer;
+import com.zanhd.dailyhelper.data.DatabaseHandlerDailyWorker;
 import com.zanhd.dailyhelper.model.Customer;
+import com.zanhd.dailyhelper.model.DailyWorker;
+import com.zanhd.dailyhelper.ui.RecyclerViewAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerAccountActivity extends AppCompatActivity {
 
@@ -24,6 +33,10 @@ public class CustomerAccountActivity extends AppCompatActivity {
     private ActionBarDrawerToggle toggle;
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
+
+    private RecyclerView recyclerView;
+    private RecyclerViewAdapter recyclerViewAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +77,10 @@ public class CustomerAccountActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Home Panel is Open",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
+                    case R.id.menu_profile:
+                        break;
+                    case R.id.menu_work:
+                        break;
                     case R.id.menu_setting :
                         Toast.makeText(getApplicationContext(),"Setting Panel is Open",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
@@ -73,6 +90,16 @@ public class CustomerAccountActivity extends AppCompatActivity {
             }
         });
 
+        //creating recyclerview and showing data of all dailyworkers
+        recyclerView = findViewById(R.id.customer_recycler_view);
+        DatabaseHandlerDailyWorker dbDailyWoker = new DatabaseHandlerDailyWorker(this);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        List<DailyWorker> dailyWorkerList = dbDailyWoker.getAllDailyWorkers();
+        recyclerViewAdapter = new RecyclerViewAdapter(this,dailyWorkerList);
+        recyclerView.setAdapter(recyclerViewAdapter);
+        recyclerViewAdapter.notifyDataSetChanged();
 
     }
 }

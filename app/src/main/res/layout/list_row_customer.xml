@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="?attr/colorAccent"
+        app:cardCornerRadius="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/customer_recycler_view_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:padding="5dp"
+                android:src="@drawable/login_image"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_recycler_view"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/name_recycler_view"
+                        android:layout_marginTop="5dp"
+                        android:textSize="20sp"
+                        android:textAlignment="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/name"/>
+                    <TextView
+                        android:id="@+id/profession_recycler_view"
+                        android:textSize="15sp"
+                        android:textStyle="bold|italic"
+                        android:textAlignment="center"
+                        android:layout_below="@+id/name_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Profession"/>
+                    <TextView
+                        android:id="@+id/dailycharges_recycler_view"
+                        android:textSize="15sp"
+                        android:textAlignment="center"
+                        android:layout_below="@+id/profession_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/daily_charges"/>
+                    <TextView
+                        android:id="@+id/phonenumber_recycler_view"
+                        android:textSize="15sp"
+                        android:textAlignment="center"
+                        android:layout_below="@+id/dailycharges_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/phone_number"/>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

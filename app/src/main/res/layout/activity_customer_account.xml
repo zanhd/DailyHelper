@@ -19,6 +19,23 @@
             app:title="@string/customer"
             android:background="@color/colorAccent"/>
 
+        <TextView
+            android:id="@+id/title_recycler_view"
+            android:layout_below="@id/customer_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/available_daily_workers"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textAlignment="center"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/customer_recycler_view"
+            android:layout_below="@+id/title_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -28,4 +45,5 @@
         app:menu="@menu/menu_customer"
         app:headerLayout="@layout/navheader_customer"
         android:layout_gravity = "start"/>
+
 </androidx.drawerlayout.widget.DrawerLayout>

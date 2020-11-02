@@ -26,6 +26,8 @@
     <string name="close">Close</string>
     <string name="customer">Customer</string>
     <string name="email_address">Email address</string>
+    <string name="daily_charges">Daily Charges</string>
+    <string name="available_daily_workers">Available Daily Workers</string>
 
     <string-array name="login_spinner_array">
         <item>Customer</item>
